@@ -3,6 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -11,25 +12,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<String> names = new ArrayList<>(); //Создаем лист
+        List<String> names = new ArrayList<>();
         names.add("Bob");
         names.add("Anna");
-        names.add("Dave");   //Добавляем в него имена
+        names.add("Dave");
+
+        names.stream()
+                .map(name -> name.substring(1))
+                .sorted()
+                .forEach(name->System.out.println(name));
 
 
-        List<String> result = new ArrayList<>(); //Создаем лист, который будет результатом
-        for (String name : names) {              //Проходимся по нашему листу с именами
-            String s = name.substring(0, 0) + name.substring(1);  //В листе с именами работаем с каждой строкой
-            result.add(s);                                        //Получившуюся строку добавляем в список result
-        }
-        Collections.sort(result);              //Сортируем наш новый лист
-        System.out.println(result);            //Выводим в консоль
 
     }
-
-
-
-
 
 }
 
